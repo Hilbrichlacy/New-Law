@@ -3,15 +3,15 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['images.unsplash.com'],
-    unoptimized: true
+    domains: ['localhost', 'vercel.com'],
+    unoptimized: true,
   },
   // Enable static exports
   output: 'standalone',
   // Disable source maps in production
   productionBrowserSourceMaps: false,
   // Trailing slashes configuration
-  trailingSlash: false,
+  trailingSlash: true,
   // Configure powered by header
   poweredByHeader: false,
   // Configure compression
@@ -19,7 +19,16 @@ const nextConfig = {
   // Configure base path if needed
   basePath: '',
   // Configure asset prefix if needed
-  assetPrefix: ''
+  assetPrefix: '',
+  env: {
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+  },
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  eslint: {
+    ignoreDuringBuilds: false,
+  }
 }
 
 module.exports = nextConfig 
